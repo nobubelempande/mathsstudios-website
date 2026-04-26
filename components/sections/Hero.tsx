@@ -1,5 +1,6 @@
 "use client"
 import { SITE } from "@/lib/constants";
+import { asset } from "@/lib/assetPath";
 
 export default function Hero() {
   return (
@@ -23,9 +24,8 @@ export default function Hero() {
           playsInline
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         >
-          <source src="/videos/test2.mp4" type="video/mp4" />
+          <source src={asset("/videos/test2.mp4")} type="video/mp4" />
         </video>
-
        <div
   style={{
     position: "absolute",
