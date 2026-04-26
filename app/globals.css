@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Nunito:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --green: #1a6b28;
+  --green-mid: #1e7e30;
+  --green-light: #2aa83e;
+  --green-pale: #f0f7f1;
+  --red: #b91c1c;
+  --red-light: #dc2626;
+  --red-pale: #fdf3f3;
+  --white: #ffffff;
+  --off-white: #fafaf8;
+  --cream: #f5f3ef;
+  --text-dark: #141414;
+  --text-body: #2e2e2e;
+  --text-muted: #6b6b6b;
+  --border: #e8e8e4;
+  --border-strong: #d0cfc8;
+  --charcoal: #1c1c1c;
+  --charcoal-mid: #2a2a2a;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background: var(--white);
+  color: var(--text-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
