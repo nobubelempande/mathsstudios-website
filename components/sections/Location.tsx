@@ -5,9 +5,9 @@ import { SITE } from "@/lib/constants";
 import { asset } from "@/lib/assetPath";
 
 const slides = [
-  asset("/images/centre1.jpeg"),
-  asset("/images/centre2.jpeg"),
-  asset("/images/centre3.jpeg"),
+  ("/images/centre1.jpeg"),
+  ("/images/centre2.jpeg"),
+  ("/images/centre3.jpeg"),
 ];
 
 export default function Location() {
