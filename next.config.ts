@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "export",
+  basePath: "/mathsstudioswebsite",
+  assetPrefix: "/mathsstudioswebsite/",
   images: {
     unoptimized: true,
     dangerouslyAllowSVG: true,
