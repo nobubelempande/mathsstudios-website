@@ -24,7 +24,7 @@ export default function Hero() {
           playsInline
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         >
-          <source src="/videos/test2.mp4" type="video/mp4" />
+          <source src="/mathsstudios-website/videos/test2.mp4" type="video/mp4" />
         </video>
        <div
   style={{
