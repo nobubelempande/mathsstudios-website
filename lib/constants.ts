@@ -11,7 +11,7 @@ export const SITE = {
   },
   hours: {
     weekdays: "Mon – Fri: 10:00 – 18:00",
-    weekends: "Sat – Sun: 09:00 – 14:30",
+    weekends: "Sat – Sun: 09:00 – 15:00",
   },
   social: {
     facebook: "https://www.facebook.com/MathsStudios",
@@ -89,9 +89,9 @@ export const TESTIMONIALS = [
   },
   {
     stars: 5,
-    text: "I enrolled for Matric Re-Write after failing. MathsStudios helped me pass with marks I am proud of.",
+    text: "I enrolled for Matric Upgrade after failing. MathsStudios helped me pass with marks I am proud of.",
     name: "Refiloe Mokoena",
-    role: "Matric Re-Write student",
+    role: "Matric Upgrade student",
     initials: "RM",
     color: "#7c3aed",
   },
@@ -100,8 +100,8 @@ export const TESTIMONIALS = [
 export const SUBJECTS = [
   {
     icon: "📝",
-    name: "Matric Re-Write",
-    desc: "Specialised support for Re-Write students — targeted revision, exam technique, and results-driven preparation.",
+    name: "Matric Upgrade",
+    desc: "Specialised support for Upgrade students — targeted revision, exam technique, and results-driven preparation.",
     grade: null,
     featured: false,
   },

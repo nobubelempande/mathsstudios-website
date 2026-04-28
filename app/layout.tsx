@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "MathsStudios — Private Tutoring, Grades 1–12",
   description:
-    "Private one-on-one and group tutoring for Grades 1–12 and Matric Re-Write. Expert tutors in Randburg, Johannesburg. CAPS, IEB, Cambridge, AS & A-Level.",
+    "Private one-on-one and group tutoring for Grades 1–12 and Matric Upgrade. Expert tutors in Randburg, Johannesburg. CAPS, IEB, Cambridge, AS & A-Level.",
 };
 
 export const viewport: Viewport = {

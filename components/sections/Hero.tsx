@@ -27,16 +27,16 @@ export default function Hero() {
           <source src="/mathsstudios-website/videos/test.mp4" type="video/mp4" />
         </video> */}
         <img
-    src="/mathsstudios-website/images/hero.jpg"
+    src="/mathsstudios-website/images/hero2.jpeg"
     alt="MathsStudios hero"
     style={{ width: "100%", height: "100%", objectFit: "cover" }}
   />
        <div
-  style={{
+style={{
     position: "absolute",
     inset: 0,
     background:
-      "linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.4) 65%, rgba(0,0,0,0.05) 100%)",
+      "rgba(0, 0, 0, 0.55)",
   }}
 />
       </div>
@@ -91,7 +91,7 @@ export default function Hero() {
             textShadow: "0 1px 6px rgba(0,0,0,0.6)",
           }}
         >
-          Private one-on-one and group tutoring for Grades 1–12 and Matric Re-Write.
+          Private one-on-one and group tutoring for Grades 1–12 and Matric Upgrade.
         </p>
 
          <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
