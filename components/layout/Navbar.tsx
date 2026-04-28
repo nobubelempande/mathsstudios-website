@@ -20,7 +20,7 @@ export default function Navbar() {
           right: 0,
           zIndex: 200,
           height: 70,
-          background: "rgba(255,255,255,0.98)",
+          background: "black",
           backdropFilter: "blur(16px)",
           WebkitBackdropFilter: "blur(16px)",
           borderBottom: "1px solid var(--border)",
@@ -42,9 +42,9 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              style={{ fontSize: 14, fontWeight: 500, color: "#555", textDecoration: "none", whiteSpace: "nowrap", letterSpacing: "0.1px", transition: "color .2s" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text-dark)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "#555")}
+              style={{ fontSize: 14, fontWeight: 500, color: "white", textDecoration: "none", whiteSpace: "nowrap", letterSpacing: "0.1px", transition: "color .2s" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "green")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "white")}
             >
               {link.label}
             </Link>
@@ -52,7 +52,7 @@ export default function Navbar() {
           <a
             href={`tel:${SITE.phone}`}
             style={{
-              background: "var(--red)",
+              background: "#1a7a2e",
               color: "#fff",
               padding: "9px 22px",
               borderRadius: 6,

@@ -42,26 +42,26 @@ export const WHY_FEATURES = [
     title: "Seasoned tutors",
     desc: "Most of our tutors have national exam marking experience.",
   },
-  {
-    icon: "🎯",
-    title: "Built around your child",
-    desc: "We identify the gaps, set the pace, and follow their exact school curriculum.",
-  },
-  {
-    icon: "📚",
-    title: "Curriculum covered",
-    desc: "CAPS, IEB, Cambridge, AS & A-Level — our tutors are trained across each one.",
-  },
-  {
-    icon: "🎓",
-    title: "Matric Re-Write specialists",
-    desc: "Rebuild, refocus, and come back stronger. We have helped many succeed.",
-  },
-  {
-    icon: "🏆",
-    title: "10+ years of proven results",
-    desc: "Reliable and dependable.",
-  },
+  // {
+  //   icon: "🎯",
+  //   title: "Built around your child",
+  //   desc: "We identify the gaps, set the pace, and follow their exact school curriculum.",
+  // },
+  // {
+  //   icon: "📚",
+  //   title: "Curriculum covered",
+  //   desc: "CAPS, IEB, Cambridge, AS & A-Level — our tutors are trained across each one.",
+  // },
+  // {
+  //   icon: "🎓",
+  //   title: "Matric Upgrade specialists",
+  //   desc: "Rebuild, refocus, and come back stronger. We have helped many succeed.",
+  // },
+  // {
+  //   icon: "🏆",
+  //   title: "10+ years of proven results",
+  //   desc: "Reliable and dependable.",
+  // },
   {
     icon: "💻",
     title: "Online classes available",
@@ -109,7 +109,7 @@ export const SUBJECTS = [
     icon: "📐",
     name: "Mathematics & Maths Lit",
     desc: "From basic numeracy to calculus and trigonometry — we meet learners exactly where they are.",
-    grade: "Grades 5 – 12",
+    grade: "Grades 1 – 12",
     featured: false,
   },
   {

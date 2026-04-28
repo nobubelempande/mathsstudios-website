@@ -17,7 +17,7 @@ export default function Hero() {
     >
       {/* Background */}
       <div style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
-        <video
+        {/* <video
           autoPlay
           muted
           loop
@@ -25,7 +25,12 @@ export default function Hero() {
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         >
           <source src="/mathsstudios-website/videos/test.mp4" type="video/mp4" />
-        </video>
+        </video> */}
+        <img
+    src="/mathsstudios-website/images/hero.jpg"
+    alt="MathsStudios hero"
+    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+  />
        <div
   style={{
     position: "absolute",
@@ -56,7 +61,7 @@ export default function Hero() {
             WebkitBackdropFilter: "blur(4px)",
           }}
         >
-          Private lessons · Grades 5–12 · 10+ Years
+          Private lessons · Grades 1–12 · 10+ Years
         </div>
 
         <h1
@@ -71,8 +76,8 @@ export default function Hero() {
             textShadow: "0 2px 12px rgba(0,0,0,0.7)",
           }}
         >
-          Give Them a{" "}
-          <em style={{ color: "#6ee7a0", fontStyle: "normal" }}>Head Start</em>
+          Give Your Child A{" "}
+          <em style={{ color: "#1a7a2e", fontStyle: "normal" }}>Head Start</em>
         </h1>
 
         <p
@@ -86,15 +91,15 @@ export default function Hero() {
             textShadow: "0 1px 6px rgba(0,0,0,0.6)",
           }}
         >
-          Private one-on-one and group tutoring for Grades 5–12 and Matric Re-Write.
+          Private one-on-one and group tutoring for Grades 1–12 and Matric Re-Write.
         </p>
 
          <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
-           <a href={`tel:${SITE.phone}`} style={{ background: "var(--red)", color: "#fff", fontFamily: '"Nunito", sans-serif', fontSize: 15, fontWeight: 700, padding: "13px 28px", borderRadius: 6, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, boxShadow: "0 4px 16px rgba(196,30,30,0.3)" }}>
+           <a href={`tel:${SITE.phone}`} style={{ background: "#1a7a2e", color: "#fff", fontFamily: '"Nunito", sans-serif', fontSize: 15, fontWeight: 700, padding: "13px 28px", borderRadius: 6, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, boxShadow: "0 4px 16px rgba(196,30,30,0.3)" }}>
              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
              {SITE.phoneDisplay}
            </a>
-           <a href="#subjects" style={{ color: "rgba(240,236,228,0.9)", fontFamily: '"Nunito", sans-serif', fontSize: 15, fontWeight: 600, padding: "13px 26px", borderRadius: 6, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, border: "1px solid rgba(255,255,255,0.35)", background: "rgba(255,255,255,0.05)" }}>
+           <a href="#subjects" style={{ background: "var(--red)", color: "#fff", fontFamily: '"Nunito", sans-serif', fontSize: 15, fontWeight: 600, padding: "13px 26px", borderRadius: 6, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, boxShadow: "0 4px 16px rgba(196,30,30,0.3)"}}>
              See our subjects →
            </a>
          </div>

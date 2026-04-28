@@ -2,20 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { SITE } from "@/lib/constants";
-import { asset } from "@/lib/assetPath";
 
 const slides = [
-  ("/mathsstudios-website/images/centre1.jpeg"),
-  ("/mathsstudios-website/images/centre2.jpeg"),
-  ("/mathsstudios-website/images/centre3.jpeg"),
+  "/mathsstudios-website/images/centre1.jpeg",
+  "/mathsstudios-website/images/centre2.jpeg",
+  "/mathsstudios-website/images/centre3.jpeg",
 ];
 
 export default function Location() {
   const [current, setCurrent] = useState(0);
-
-  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    `${SITE.address.street}, ${SITE.address.suburb}, ${SITE.address.city}`
-  )}`;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -25,80 +20,98 @@ export default function Location() {
   }, []);
 
   return (
-    <section style={{ background: "var(--white)", padding: "90px 5%" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        
-        <div className="location-grid">
+    <section className="location-section">
 
-          {/* LEFT SIDE (your info) */}
-          <div>
-            <p className="label">Find Us</p>
-            <h2 className="heading">Visit Our Centre</h2>
+      {/* BACKGROUND SLIDESHOW */}
+      {slides.map((img, index) => (
+        <img
+          key={index}
+          src={img}
+          alt=""
+          aria-hidden="true"
+          className={`bg-slide ${index === current ? "active" : ""}`}
+        />
+      ))}
 
-            <div className="info-block">
-              <p className="title">📍 Address</p>
-              <p>
-                {SITE.address.street}<br />
-                {SITE.address.suburb}<br />
-                {SITE.address.city}
-              </p>
-            </div>
+      {/* DARK OVERLAY */}
+      <div className="overlay" />
 
-            <div className="info-block">
-              <p className="title">🕘 Hours</p>
-              <p>
-                {SITE.hours.weekdays}<br />
-                {SITE.hours.weekends}
-              </p>
-            </div>
+      {/* CONTENT — left-aligned */}
+      <div className="content-wrapper">
+        <p className="label">Find Us</p>
+        <h2 className="heading">Visit Our Centre</h2>
 
-            <div className="info-block">
-              <p className="title">📞 Call Us</p>
-              <a href={`tel:${SITE.phone}`} className="phone">
-                {SITE.phoneDisplay}
-              </a>
-            </div>
+        <div className="info-block">
+          <p className="title">📍 Address</p>
+          <p>
+            {SITE.address.street}<br />
+            {SITE.address.suburb}<br />
+            {SITE.address.city}
+          </p>
+        </div>
 
-            <div className="buttons">
-              <a href={`tel:${SITE.phone}`} className="btn primary">
-                Call Now
-              </a>
-              <a href={mapsUrl} target="_blank" className="btn secondary">
-                Directions →
-              </a>
-            </div>
-          </div>
+        <div className="info-block">
+          <p className="title">🕘 Hours</p>
+          <p>
+            {SITE.hours.weekdays}<br />
+            {SITE.hours.weekends}
+          </p>
+        </div>
 
-          {/* RIGHT SIDE (fade images) */}
-          <div className="image-container">
-            {slides.map((img, index) => (
-              <img
-                key={index}
-                src={img}
-                alt="Centre"
-                className={`fade-image ${
-                  index === current ? "active" : ""
-                }`}
-              />
-            ))}
-          </div>
+        {/* <div className="info-block">
+          <p className="title">📞 Call Us</p>
+          <a href={`tel:${SITE.phone}`} className="phone">
+            {SITE.phoneDisplay}
+          </a>
+        </div> */}
 
+        <div className="buttons">
+          <a href={`tel:${SITE.phone}`} className="btn primary">
+            Call Now
+          </a>
         </div>
       </div>
 
-      {/* STYLES */}
       <style jsx>{`
-        .location-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 60px;
+        .location-section {
+          position: relative;
+          padding: 90px 5%;
+          overflow: hidden;
+          min-height: 480px;
+          display: flex;
           align-items: center;
         }
 
-        @media (max-width: 900px) {
-          .location-grid {
-            grid-template-columns: 1fr;
-          }
+        /* BACKGROUND SLIDES */
+        .bg-slide {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0;
+          transition: opacity 1s ease-in-out;
+          z-index: 0;
+        }
+
+        .bg-slide.active {
+          opacity: 1;
+        }
+
+        /* OVERLAY */
+        .overlay {
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.55);
+          z-index: 1;
+        }
+
+        /* CONTENT */
+        .content-wrapper {
+          position: relative;
+          z-index: 2;
+          max-width: 480px;
+          color: white;
         }
 
         .label {
@@ -113,17 +126,20 @@ export default function Location() {
           font-size: 34px;
           font-weight: 900;
           margin-bottom: 30px;
+          color: white;
         }
 
         .info-block {
           margin-bottom: 18px;
           font-size: 14px;
           line-height: 1.6;
+          color: rgba(255, 255, 255, 0.85);
         }
 
         .title {
           font-weight: 700;
           margin-bottom: 4px;
+          color: white;
         }
 
         .phone {
@@ -149,32 +165,6 @@ export default function Location() {
         .primary {
           background: var(--red);
           color: white;
-        }
-
-        .secondary {
-          border: 1px solid var(--border);
-          color: var(--text-dark);
-        }
-
-        /* IMAGE FADE */
-        .image-container {
-          position: relative;
-          height: 420px;
-          border-radius: 16px;
-          overflow: hidden;
-        }
-
-        .fade-image {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          opacity: 0;
-          transition: opacity 1s ease-in-out;
-        }
-
-        .fade-image.active {
-          opacity: 1;
         }
       `}</style>
     </section>

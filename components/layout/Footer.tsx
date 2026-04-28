@@ -87,7 +87,7 @@ export default function Footer() {
             {SITE.tagline}
           </p>
           <p style={{ fontSize: 12.5, color: "rgba(255,255,255,0.38)", lineHeight: 1.7 }}>
-            Private one-on-one tutoring for Grades 5–12 and Matric Re-Write. Operating for 10+ years.
+            Private one-on-one tutoring for 1–12 and Matric Re-Write. Operating for 10+ years.
           </p>
         </div>
 
