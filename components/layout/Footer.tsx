@@ -1,223 +1,136 @@
 import Link from "next/link";
 import Logo from "@/components/ui/Logo";
-import { SITE, NAV_LINKS, SUBJECTS } from "@/lib/constants";
+import { SITE, NAV_LINKS } from "@/lib/constants";
 
 export default function Footer() {
-  const subjectLinks = SUBJECTS.filter((s) => !("isMore" in s && s.isMore) && !s.featured).slice(0, 6);
-
   return (
-    <footer style={{ background: "var(--text-dark)", fontFamily: '"Nunito", sans-serif' }}>
-      {/* Top CTA band */}
-      {/* <div
-        style={{
-          background: "var(--charcoal)",
-          padding: "44px 6%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: 32,
-          flexWrap: "wrap",
-          borderBottom: "1px solid rgba(255,255,255,0.08)",
-        }}
-      >
-        <div>
-          <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: 3, textTransform: "uppercase", color: "rgba(255,255,255,0.6)", marginBottom: 10 }}>
-            Ready to get started?
-          </p>
-          <h2 style={{ fontFamily: '"Merriweather", serif', fontSize: "clamp(20px, 2.2vw, 30px)", fontWeight: 900, color: "#fff", lineHeight: 1.2 }}>
-            Give your child a{" "}
-            <span style={{ color: "#6fcf83" }}>head start</span>
-          </h2>
+    <footer style={{ background: "#0d1210", borderTop: "1px solid rgba(255,255,255,0.08)", fontFamily: '"Nunito", sans-serif' }}>
+
+      {/* Main row */}
+      <div className="footer-main">
+
+        {/* Logo */}
+        <div className="footer-logo">
+          <Logo height={40} />
         </div>
-        <div style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap", flexShrink: 0 }}>
-          <a
-            href={`tel:${SITE.phone}`}
-            style={{
-              background: "var(--red)",
-              color: "#fff",
-              padding: "13px 28px",
-              borderRadius: 6,
-              fontSize: 14.5,
-              fontWeight: 700,
-              textDecoration: "none",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              boxShadow: "0 4px 20px rgba(196,30,30,0.35)",
-            }}
-          >
+
+        {/* Contact info */}
+        <div className="footer-contact">
+          <a href={`mailto:${SITE.email}`} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.45)", textDecoration: "none", display: "block", marginBottom: 4 }}>
+            📧 {SITE.email}
+          </a>
+          <a href={`tel:${SITE.phone}`} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.45)", textDecoration: "none", display: "block" }}>
             📞 {SITE.phoneDisplay}
           </a>
-          <a
-            href={`mailto:${SITE.email}`}
-            style={{
-              background: "rgba(255,255,255,0.12)",
-              color: "#fff",
-              padding: "13px 24px",
-              borderRadius: 6,
-              border: "1.5px solid rgba(255,255,255,0.25)",
-              fontSize: 14.5,
-              fontWeight: 600,
-              textDecoration: "none",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-            }}
-          >
-            ✉️ Email us
+        </div>
+
+        {/* Social icons */}
+        <div className="footer-social">
+          {/* Facebook */}
+          <a href={SITE.social.facebook} target="_blank" rel="noopener noreferrer" style={socialStyle}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+            </svg>
+          </a>
+          {/* Instagram */}
+          <a href="#" target="_blank" rel="noopener noreferrer" style={socialStyle}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
+          {/* Twitter / X */}
+          <a href="#" target="_blank" rel="noopener noreferrer" style={socialStyle}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
           </a>
         </div>
-      </div> */}
 
-      {/* Mid columns */}
-      <div
-        className="footer-mid-grid"
-        style={{
-          padding: "56px 5%",
-          display: "grid",
-          gridTemplateColumns: "1.6fr 1fr 1fr 1.2fr",
-          gap: 40,
-          borderBottom: "1px solid rgba(255,255,255,0.08)",
-        }}
-      >
-        {/* Brand */}
-        <div style={{ paddingRight: 16 }}>
-          <Logo height={44} />
-          <p style={{ fontFamily: '"Merriweather",serif', fontSize: 12, fontStyle: "italic", color: "rgba(255,255,255,0.5)", margin: "14px 0 12px" }}>
-            {SITE.tagline}
-          </p>
-          <p style={{ fontSize: 12.5, color: "rgba(255,255,255,0.38)", lineHeight: 1.7 }}>
-            Private one-on-one tutoring for 1–12 and Matric Upgrade. Operating for 10+ years.
-          </p>
-        </div>
-
-        {/* Navigate */}
-        <div>
-          <p style={{ fontSize: 9.5, fontWeight: 700, letterSpacing: 2.5, textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: 18 }}>
-            Navigate
-          </p>
-          <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
-            {NAV_LINKS.map((l) => (
-              <li key={l.href}>
-                <Link href={l.href} style={{ fontSize: 13, fontWeight: 500, color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <a href={`tel:${SITE.phone}`} style={{ fontSize: 13, fontWeight: 500, color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
-                Enquire Now
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Subjects */}
-        <div>
-          <p style={{ fontSize: 9.5, fontWeight: 700, letterSpacing: 2.5, textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: 18 }}>
-            Subjects
-          </p>
-          <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
-            {subjectLinks.map((s) => (
-              <li key={s.name}>
-                <Link href="#subjects" style={{ fontSize: 13, fontWeight: 500, color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
-                  {s.name}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <Link href="#subjects" style={{ fontSize: 13, fontWeight: 500, color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
-                Matric Upgrade
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        {/* Visit */}
-        <div>
-          <p style={{ fontSize: 9.5, fontWeight: 700, letterSpacing: 2.5, textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: 18 }}>
-            Visit Us
-          </p>
-          <div style={{ marginBottom: 14 }}>
-            <p style={{ fontSize: 12.5, color: "rgba(255,255,255,0.6)", lineHeight: 1.8 }}>{SITE.address.street}</p>
-            <p style={{ fontSize: 12.5, color: "rgba(255,255,255,0.6)", lineHeight: 1.8 }}>{SITE.address.suburb}</p>
-            <p style={{ fontSize: 12.5, color: "rgba(255,255,255,0.6)", lineHeight: 1.8 }}>{SITE.address.city}</p>
-          </div>
-          <div style={{ marginBottom: 20 }}>
-            <p style={{ fontSize: 12.5, color: "rgba(255,255,255,0.45)", lineHeight: 1.8 }}>{SITE.hours.weekdays}</p>
-            <p style={{ fontSize: 12.5, color: "rgba(255,255,255,0.45)", lineHeight: 1.8 }}>{SITE.hours.weekends}</p>
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            <a
-              href={SITE.social.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                background: "rgba(255,255,255,0.06)",
-                border: "1px solid rgba(255,255,255,0.1)",
-                color: "rgba(255,255,255,0.65)",
-                fontSize: 12.5,
-                fontWeight: 500,
-                padding: "8px 14px",
-                borderRadius: 5,
-                textDecoration: "none",
-                width: "fit-content",
-              }}
+        {/* Quick links */}
+        <div className="footer-links">
+          {NAV_LINKS.slice(0, 4).map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", textDecoration: "none", fontWeight: 500 }}
             >
-              Facebook
-            </a>
-            <a
-              href={`mailto:${SITE.email}`}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                background: "rgba(255,255,255,0.06)",
-                border: "1px solid rgba(255,255,255,0.1)",
-                color: "rgba(255,255,255,0.65)",
-                fontSize: 12.5,
-                fontWeight: 500,
-                padding: "8px 14px",
-                borderRadius: 5,
-                textDecoration: "none",
-                width: "fit-content",
-              }}
-            >
-              Email
-            </a>
-          </div>
+              {l.label}
+            </Link>
+          ))}
         </div>
+
       </div>
 
       {/* Bottom bar */}
-      <div
-        style={{
-          padding: "18px 6%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          fontSize: 11.5,
-          color: "rgba(255,255,255,0.2)",
-          flexWrap: "wrap",
-          gap: 8,
-          borderTop: "1px solid rgba(255,255,255,0.06)",
-        }}
-      >
+      <div style={{
+        padding: "16px 5%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        fontSize: 11.5,
+        color: "rgba(255,255,255,0.2)",
+        borderTop: "1px solid rgba(255,255,255,0.06)",
+        flexWrap: "wrap",
+        gap: 8,
+      }}>
         <span>© {new Date().getFullYear()} MathsStudios. All rights reserved.</span>
         <span>www.mathsstudios.co.za</span>
       </div>
 
       <style>{`
-        @media (max-width: 960px) {
-          .footer-mid-grid { grid-template-columns: 1fr 1fr !important; gap: 36px !important; padding: 44px 5% !important; }
+        .footer-main {
+          padding: 36px 5%;
+          display: flex;
+          align-items: center;
+          gap: 40px;
+          flex-wrap: wrap;
         }
-        @media (max-width: 480px) {
-          .footer-mid-grid { grid-template-columns: 1fr 1fr !important; gap: 20px !important; padding: 36px 4% !important; }
+        .footer-logo {
+          flex-shrink: 0;
+        }
+        .footer-contact {
+          flex: 1;
+          min-width: 160px;
+        }
+        .footer-social {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          flex-shrink: 0;
+        }
+        .footer-links {
+          display: flex;
+          gap: 20px;
+          align-items: center;
+          flex-wrap: wrap;
+          flex-shrink: 0;
+        }
+        @media (max-width: 640px) {
+          .footer-main {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+          }
+          .footer-links {
+            gap: 14px;
+          }
         }
       `}</style>
     </footer>
   );
 }
+
+const socialStyle: React.CSSProperties = {
+  width: 36,
+  height: 36,
+  borderRadius: "50%",
+  border: "1px solid rgba(255,255,255,0.12)",
+  background: "rgba(255,255,255,0.05)",
+  color: "rgba(255,255,255,0.6)",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  textDecoration: "none",
+};
