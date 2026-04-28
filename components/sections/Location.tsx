@@ -20,7 +20,7 @@ export default function Location() {
   }, []);
 
   return (
-    <div id="subjects">
+    <div id="location">
     <section className="location-outer">
 
       <div className="location-inner">
