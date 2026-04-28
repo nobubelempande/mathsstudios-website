@@ -205,6 +205,9 @@ export default function Navbar() {
         @media (max-width: 420px) {
           nav { height: 60px !important; padding: 0 4% !important; }
         }
+          .nav-burger-btn span {
+          background: #fff !important;
+        }
       `}</style>
     </>
   );
