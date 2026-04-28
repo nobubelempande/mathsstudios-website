@@ -20,69 +20,76 @@ export default function Location() {
   }, []);
 
   return (
-    <section className="location-section">
+    <div id="subjects">
+    <section className="location-outer">
 
-      {/* BACKGROUND SLIDESHOW */}
-      {slides.map((img, index) => (
-        <img
-          key={index}
-          src={img}
-          alt=""
-          aria-hidden="true"
-          className={`bg-slide ${index === current ? "active" : ""}`}
-        />
-      ))}
+      <div className="location-inner">
 
-      {/* DARK OVERLAY */}
-      <div className="overlay" />
+        {/* BACKGROUND SLIDESHOW */}
+        {slides.map((img, index) => (
+          <img
+            key={index}
+            src={img}
+            alt=""
+            aria-hidden="true"
+            className={`bg-slide ${index === current ? "active" : ""}`}
+          />
+        ))}
 
-      {/* CONTENT — left-aligned */}
-      <div className="content-wrapper">
-        <p className="label">Find Us</p>
-        <h2 className="heading">Visit Our Centre</h2>
+        {/* DARK OVERLAY */}
+        <div className="overlay" />
 
-        <div className="info-block">
-          <p className="title">📍 Address</p>
-          <p>
-            {SITE.address.street}<br />
-            {SITE.address.suburb}<br />
-            {SITE.address.city}
-          </p>
+        {/* CONTENT */}
+        <div className="content-wrapper">
+          <p className="label">Find Us</p>
+          <h2 className="heading">Visit Our Centre</h2>
+
+          <div className="info-block">
+            <p className="title">📍 Address</p>
+            <p>
+              {SITE.address.street}<br />
+              {SITE.address.suburb}<br />
+              {SITE.address.city}
+            </p>
+          </div>
+
+          <div className="info-block">
+            <p className="title">🕘 Hours</p>
+            <p>
+              {SITE.hours.weekdays}<br />
+              {SITE.hours.weekends}
+            </p>
+          </div>
+
+          <div className="buttons">
+            <a href={`tel:${SITE.phone}`} className="btn primary">
+              Call Now
+            </a>
+          </div>
         </div>
 
-        <div className="info-block">
-          <p className="title">🕘 Hours</p>
-          <p>
-            {SITE.hours.weekdays}<br />
-            {SITE.hours.weekends}
-          </p>
-        </div>
-
-        {/* <div className="info-block">
-          <p className="title">📞 Call Us</p>
-          <a href={`tel:${SITE.phone}`} className="phone">
-            {SITE.phoneDisplay}
-          </a>
-        </div> */}
-
-        <div className="buttons">
-          <a href={`tel:${SITE.phone}`} className="btn primary">
-            Call Now
-          </a>
-        </div>
       </div>
 
       <style jsx>{`
-        .location-section {
-          position: relative;
-          padding: 90px 5%;
-          overflow: hidden;
-          min-height: 480px;
-          display: flex;
-          align-items: center;
+        .location-outer {
+          padding: 70px 5%;
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
+          background: black;
         }
 
-        /* BACKGROUND SLIDES */
+        .location-inner {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 480px;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* changed */
+  padding: 60px 50px;          /* add padding so content isn't glued to edge */
+}
+
         .bg-slide {
           position: absolute;
           inset: 0;
@@ -98,7 +105,6 @@ export default function Location() {
           opacity: 1;
         }
 
-        /* OVERLAY */
         .overlay {
           position: absolute;
           inset: 0;
@@ -106,13 +112,17 @@ export default function Location() {
           z-index: 1;
         }
 
-        /* CONTENT */
         .content-wrapper {
-          position: relative;
-          z-index: 2;
-          max-width: 480px;
-          color: white;
-        }
+  position: relative;
+  z-index: 2;
+  max-width: 480px;
+  color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* changed */
+  text-align: left;        /* add this */
+}
 
         .label {
           font-size: 11px;
@@ -153,6 +163,7 @@ export default function Location() {
           display: flex;
           gap: 12px;
           flex-wrap: wrap;
+          justify-content: center;
         }
 
         .btn {
@@ -168,5 +179,6 @@ export default function Location() {
         }
       `}</style>
     </section>
+    </div>
   );
 }

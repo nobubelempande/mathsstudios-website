@@ -127,7 +127,7 @@ export default function Footer() {
             ))}
             <li>
               <Link href="#subjects" style={{ fontSize: 13, fontWeight: 500, color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
-                Matric Re-Write
+                Matric Upgrade
               </Link>
             </li>
           </ul>
