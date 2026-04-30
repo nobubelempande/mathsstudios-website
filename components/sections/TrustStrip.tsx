@@ -9,8 +9,8 @@ const TRUST_ITEMS = [
     ),
     bg: "rgba(74,222,128,0.08)",
     border: "rgba(74,222,128,0.2)",
-    title: "Curriculum covered",
-    desc: "CAPS, IEB, Cambridge, AS & A-Level — our tutors are trained across each one.",
+    title: "Curriculum Covered",
+    desc: "CAPS, IEB, Cambridge, AS & A-Level.",
   },
   {
     icon: (
@@ -22,7 +22,7 @@ const TRUST_ITEMS = [
     bg: "rgba(245,158,11,0.08)",
     border: "rgba(245,158,11,0.2)",
     title: "10+ years of proven results",
-    desc: "Reliable and dependable.",
+    desc: "Reliable and Dependable.",
   },
   {
     icon: (

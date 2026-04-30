@@ -39,7 +39,7 @@ export const WHY_FEATURES = [
   },
   {
     icon: "🏅",
-    title: "Seasoned tutors",
+    title: "Seasoned Tutors",
     desc: "Most of our tutors have national exam marking experience.",
   },
   // {
@@ -65,7 +65,7 @@ export const WHY_FEATURES = [
   {
     icon: "💻",
     title: "Online classes available",
-    desc: "Can't make it in person? We offer fully interactive online sessions — same quality tutoring, wherever you are.",
+    desc: "Can't make it in person? We offer fully interactive online sessions.",
     highlight: true,
   },
 ] as const;
@@ -107,7 +107,7 @@ export const SUBJECTS = [
   },
   {
     icon: "📐",
-    name: "Mathematics & Maths Lit",
+    name: "Mathematics & Mathematics Literacy",
     desc: "From basic numeracy to calculus and trigonometry — we meet learners exactly where they are.",
     grade: "Grades 1 – 12",
     featured: false,
@@ -116,7 +116,7 @@ export const SUBJECTS = [
     icon: "💻",
     name: "IT, CAT & Computer Science",
     desc: "Information Technology and Computer Applications Technology — programming, systems, and practical digital skills.",
-    grade: "Grades 10 – 12",
+    grade: "Grades 8 – 12",
     featured: false,
   },
   {
@@ -137,7 +137,7 @@ export const SUBJECTS = [
     icon: "✍️",
     name: "Languages",
     desc: "English, isiZulu and Afrikaans — reading, writing, comprehension and exam technique across all levels.",
-    grade: "Grades 8 – 12",
+    grade: "Grades 1 – 12",
     featured: false,
   },
   {
