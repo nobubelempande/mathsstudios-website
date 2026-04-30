@@ -65,7 +65,7 @@ export const WHY_FEATURES = [
   {
     icon: "💻",
     title: "Online classes available",
-    desc: "Can't make it in person? We offer fully interactive online sessions.",
+    desc: "Can't make it in person? We offer interactive online sessions.",
     highlight: true,
   },
 ] as const;
@@ -107,7 +107,7 @@ export const SUBJECTS = [
   },
   {
     icon: "📐",
-    name: "Mathematics & Mathematics Literacy",
+    name: "Mathematics & Mathematical Literacy",
     desc: "From basic numeracy to calculus and trigonometry — we meet learners exactly where they are.",
     grade: "Grades 1 – 12",
     featured: false,
