@@ -6,7 +6,7 @@ import { SITE } from "@/lib/constants";
 const slides = [
   "/mathsstudios-website/images/centre1.jpeg",
   "/mathsstudios-website/images/centre2.jpeg",
-  "/mathsstudios-website/images/centre3.jpeg",
+  // "/mathsstudios-website/images/centre3.jpeg",
 ];
 
 export default function Location() {
