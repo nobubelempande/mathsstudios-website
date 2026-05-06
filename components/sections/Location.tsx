@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 import { SITE } from "@/lib/constants";
 
 const slides = [
-  "/mathsstudios-website/images/centre1.jpeg",
-  "/mathsstudios-website/images/centre2.jpeg",
-  "/mathsstudios-website/images/centre4.jpeg",
-  "/mathsstudios-website/images/centre5.jpeg",
-  "/mathsstudios-website/images/centre6.jpeg",
-  "/mathsstudios-website/images/centre6.jpeg",   
+  "/images/centre1.jpeg",
+  "/images/centre2.jpeg",
+  "/images/centre4.jpeg",
+  "/images/centre5.jpeg",
+  "/images/centre6.jpeg",
+  "/images/centre6.jpeg",   
   // "/mathsstudios-website/images/centre3.jpeg",
 ];
 

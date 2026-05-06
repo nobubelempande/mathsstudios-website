@@ -27,7 +27,7 @@ export default function Hero() {
           <source src="/mathsstudios-website/videos/test.mp4" type="video/mp4" />
         </video> */}
         <img
-    src="/mathsstudios-website/images/hero3.jpg"
+    src="/images/hero3.jpg"
     alt="MathsStudios hero"
     style={{ width: "100%", height: "100%", objectFit: "cover" }}
   />
