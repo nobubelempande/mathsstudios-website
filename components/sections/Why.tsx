@@ -144,7 +144,7 @@ export default function Why() {
               playsInline
               style={{ width: "100%", display: "block", borderRadius: 10, objectFit: "cover" }}
             >
-              <source src="/mathsstudios-website/videos/test.mp4" type="video/mp4" />
+              <source src="/videos/test.mp4" type="video/mp4" />
             </video>
           </div>
 
