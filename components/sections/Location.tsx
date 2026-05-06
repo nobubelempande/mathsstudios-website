@@ -6,6 +6,10 @@ import { SITE } from "@/lib/constants";
 const slides = [
   "/mathsstudios-website/images/centre1.jpeg",
   "/mathsstudios-website/images/centre2.jpeg",
+  "/mathsstudios-website/images/centre4.jpeg",
+  "/mathsstudios-website/images/centre5.jpeg",
+  "/mathsstudios-website/images/centre6.jpeg",
+  "/mathsstudios-website/images/centre6.jpeg",   
   // "/mathsstudios-website/images/centre3.jpeg",
 ];
 
