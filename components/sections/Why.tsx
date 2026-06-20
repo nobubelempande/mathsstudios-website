@@ -1,140 +1,51 @@
-// import { WHY_FEATURES, TESTIMONIALS } from "@/lib/constants";
-
-// export default function Why() {
-//   return (
-//     <section id="why" style={{ background: "#f9f9f7", padding: "90px 5%" }}>
-//       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-//         <div className="why-grid">
-//           {/* Left: features */}
-//           <div>
-//             <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: 3, textTransform: "uppercase", color: "var(--green-light)", marginBottom: 14 }}>
-//               Why MathsStudios
-//             </p>
-//             <h2 style={{ fontFamily: '"Merriweather", serif', fontSize: "clamp(26px, 3vw, 38px)", fontWeight: 900, color: "var(--text-dark)", lineHeight: 1.18, marginBottom: 14, letterSpacing: "-0.3px" }}>
-//               Expert Tutors. Real Results.
-//             </h2>
-//             <p style={{ fontSize: 16, color: "var(--text-muted)", lineHeight: 1.75, maxWidth: 560, marginBottom: 32 }}>
-//               Private one-on-one sessions or small group classes — structured around your child&apos;s needs, pace, and curriculum.
-//             </p>
-
-//             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-//               {WHY_FEATURES.map((feat) => (
-//                 <div
-//                   key={feat.title}
-//                   style={{
-//                     display: "flex",
-//                     gap: 14,
-//                     alignItems: "flex-start",
-//                     background: ("highlight" in feat && feat.highlight) ? "var(--green-pale)" : "#ffffff",
-//                     padding: "18px 20px",
-//                     borderRadius: 8,
-//                     border: ("highlight" in feat && feat.highlight) ? "1px solid rgba(26,107,40,0.2)" : "1px solid var(--border)",
-//                     transition: "border-color .2s, box-shadow .2s",
-//                   }}
-//                 >
-//                   <div
-//                     style={{
-//                       width: 38,
-//                       height: 38,
-//                       flexShrink: 0,
-//                       background: ("highlight" in feat && feat.highlight) ? "rgba(26,107,40,0.08)" : "var(--off-white)",
-//                       borderRadius: 8,
-//                       border: ("highlight" in feat && feat.highlight) ? "1px solid rgba(26,107,40,0.2)" : "1px solid var(--border)",
-//                       display: "flex",
-//                       alignItems: "center",
-//                       justifyContent: "center",
-//                       fontSize: 16,
-//                     }}
-//                   >
-//                     {feat.icon}
-//                   </div>
-//                   <div>
-//                     <p style={{ fontSize: 14, fontWeight: 700, color: ("highlight" in feat && feat.highlight) ? "var(--green)" : "var(--text-dark)", marginBottom: 3 }}>
-//                       {feat.title}
-//                     </p>
-//                     <p style={{ fontSize: 12.5, color: "var(--text-muted)", lineHeight: 1.65 }}>
-//                       {feat.desc}
-//                     </p>
-//                   </div>
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-
-//           {/* Right: testimonials */}
-//           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-//             {TESTIMONIALS.map((t) => (
-//               <div
-//                 key={t.name}
-//                 style={{
-//                   background: "#ffffff",
-//                   border: "1.5px solid var(--border)",
-//                   borderLeft: "3px solid #2a2a2a",
-//                   borderRadius: 8,
-//                   padding: "20px 22px",
-//                   transition: "box-shadow .2s",
-//                 }}
-//               >
-//                 <div style={{ color: "#f59e0b", fontSize: 12, letterSpacing: 2, marginBottom: 8 }}>
-//                   {"★".repeat(t.stars)}
-//                 </div>
-//                 <p style={{ fontSize: 13.5, color: "var(--text-body)", lineHeight: 1.7, fontStyle: "italic", marginBottom: 12 }}>
-//                   &ldquo;{t.text}&rdquo;
-//                 </p>
-//                 <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-//                   <div
-//                     style={{
-//                       width: 32,
-//                       height: 32,
-//                       borderRadius: "50%",
-//                       background: t.color,
-//                       display: "flex",
-//                       alignItems: "center",
-//                       justifyContent: "center",
-//                       fontSize: 11,
-//                       fontWeight: 700,
-//                       color: "#fff",
-//                       flexShrink: 0,
-//                     }}
-//                   >
-//                     {t.initials}
-//                   </div>
-//                   <div>
-//                     <p style={{ fontSize: 12.5, fontWeight: 700, color: "var(--text-dark)" }}>{t.name}</p>
-//                     <p style={{ fontSize: 11, color: "var(--text-muted)" }}>{t.role}</p>
-//                   </div>
-//                 </div>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-
-//       <style>{`
-//         .why-grid {
-//           display: grid;
-//           grid-template-columns: 1fr 1fr;
-//           gap: 70px;
-//           align-items: start;
-//         }
-//         @media (max-width: 960px) {
-//           .why-grid {
-//             grid-template-columns: 1fr;
-//             gap: 44px;
-//           }
-//         }
-//       `}</style>
-//     </section>
-//   );
-// }
+"use client";
 import { WHY_FEATURES } from "@/lib/constants";
+import { useEffect, useRef, useState } from "react";
 
 export default function Why() {
+  const listRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState<boolean[]>(() => WHY_FEATURES.map(() => false));
+
+  useEffect(() => {
+    const container = listRef.current;
+    if (!container) return;
+
+    const rows = Array.from(container.querySelectorAll<HTMLElement>("[data-feat-row]"));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = Number(entry.target.getAttribute("data-feat-row"));
+
+          if (entry.isIntersecting) {
+            const delay = index * 550;
+            window.setTimeout(() => {
+              setVisible((prev) => {
+                const next = [...prev];
+                next[index] = true;
+                return next;
+              });
+            }, delay);
+          } else {
+            setVisible((prev) => {
+              const next = [...prev];
+              next[index] = false;
+              return next;
+            });
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    rows.forEach((row) => observer.observe(row));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="why" style={{ background: "#111", padding: "70px 5%", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <div className="why-video-grid">
-
           {/* LEFT: Video */}
           <div style={{ width: "100%", lineHeight: 0 }}>
             <video
@@ -150,7 +61,6 @@ export default function Why() {
 
           {/* RIGHT: Features */}
           <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: 28 }}>
-
             <div>
               <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: 3, textTransform: "uppercase", color: "#1a7a2e", marginBottom: 10 }}>
                 Why MathsStudios
@@ -163,10 +73,15 @@ export default function Why() {
               </p>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-              {WHY_FEATURES.map((feat) => (
-                <div key={feat.title} style={{ display: "flex", alignItems: "flex-start", gap: 16 }}>
-                  <div
+            <div ref={listRef} style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+              {WHY_FEATURES.map((feat, i) => (
+                <div
+                  key={feat.title}
+                  data-feat-row={i}
+                  className={`feat-row ${visible[i] ? "feat-row-in" : ""}`}
+                  style={{ display: "flex", alignItems: "flex-start", gap: 16 }}
+                >
+                  <div className="feat-check-circle"
                     style={{
                       width: 28,
                       height: 28,
@@ -181,21 +96,27 @@ export default function Why() {
                     }}
                   >
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                      <path d="M2 6l3 3 5-5" stroke="#1a7a2e" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                      <path
+                        className="feat-check"
+                        d="M2 6l3 3 5-5"
+                        stroke="#1a7a2e"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <p style={{ fontSize: 15, fontWeight: 700, color: "rgba(255,255,255,0.9)", marginBottom: 3 }}>
+                    <p className="feat-title" style={{ fontSize: 15, fontWeight: 700, color: "rgba(255,255,255,0.9)", marginBottom: 3 }}>
                       {feat.title}
                     </p>
-                    <p style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", lineHeight: 1.65 }}>
+                    <p className="feat-desc" style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", lineHeight: 1.65 }}>
                       {feat.desc}
                     </p>
                   </div>
                 </div>
               ))}
             </div>
-
           </div>
         </div>
       </div>
@@ -213,8 +134,57 @@ export default function Why() {
             gap: 40px;
           }
         }
+
+        .feat-row {
+          opacity: 0;
+          transform: translateY(80px);
+          transition: opacity 1.6s cubic-bezier(.16,.84,.24,1), transform 1.6s cubic-bezier(.16,.84,.24,1);
+        }
+        .feat-row-in {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .feat-check-circle {
+          transform: scale(0.5);
+          opacity: 0;
+          transition: transform .9s cubic-bezier(.34,1.56,.64,1) .5s, opacity .6s ease .5s;
+        }
+        .feat-row-in .feat-check-circle {
+          transform: scale(1);
+          opacity: 1;
+        }
+
+        .feat-check {
+          stroke-dasharray: 12;
+          stroke-dashoffset: 12;
+          transition: stroke-dashoffset .6s ease .95s;
+        }
+        .feat-row-in .feat-check {
+          stroke-dashoffset: 0;
+        }
+
+        .feat-title, .feat-desc {
+          opacity: 0;
+          transform: translateY(14px);
+          transition: opacity 1s ease .3s, transform 1s ease .3s;
+        }
+        .feat-desc {
+          transition-delay: .45s;
+        }
+        .feat-row-in .feat-title, .feat-row-in .feat-desc {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .feat-row, .feat-check-circle, .feat-check, .feat-title, .feat-desc {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+          }
+        }
       `}</style>
     </section>
-  
   );
 }
