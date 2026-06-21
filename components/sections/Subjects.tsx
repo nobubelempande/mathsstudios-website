@@ -1,12 +1,59 @@
 import { SUBJECTS, CURRICULA } from "@/lib/constants";
 
+// Inline SVG glyphs render identically across every device/font,
+// unlike the emoji/unicode glyphs below which vary by OS (this is
+// what was showing up as a "React logo" on phones — it was the ⚛
+// atom emoji, just rendered with that platform's atom glyph style).
+// Sized to match the old 88px text glyphs so no CSS positioning changes.
+const GLYPH_SIZE = 88;
+
+
+function AtomGlyph() {
+  // Three tilted orbital rings + nucleus, drawn as plain strokes so
+  // it renders identically everywhere — unlike the ⚛ emoji, which
+  // some phone fonts render in a style that reads as the React logo.
+  return (
+    <svg viewBox="0 0 88 88" width={GLYPH_SIZE} height={GLYPH_SIZE} fill="none" aria-hidden="true">
+      <ellipse cx="44" cy="44" rx="38" ry="15" stroke="currentColor" strokeWidth="3.5" />
+      <ellipse cx="44" cy="44" rx="38" ry="15" stroke="currentColor" strokeWidth="3.5" transform="rotate(60 44 44)" />
+      <ellipse cx="44" cy="44" rx="38" ry="15" stroke="currentColor" strokeWidth="3.5" transform="rotate(120 44 44)" />
+      <circle cx="44" cy="44" r="7" fill="currentColor" />
+    </svg>
+  );
+}
+
+function FlaskGlyph() {
+  // Flask alone — covers Physics & Chemistry without doubling up
+  // with an atom symbol.
+  return (
+    <svg viewBox="0 0 88 88" width={GLYPH_SIZE} height={GLYPH_SIZE} fill="none" aria-hidden="true">
+      <path
+        d="M34 6H54M37 6V32L18 66C15 72 19 80 26 80H62C69 80 73 72 70 66L51 32V6"
+        stroke="currentColor"
+        strokeWidth="4.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M27 58H61" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 // Maps a subject name to a faint background glyph shown on hover.
+// Returns either plain text (kept for the glyphs that already render
+// consistently) or an inline SVG element for the ones that don't.
+// Order matters: more specific checks (cat/comput) must run before
+// broader ones (science) since "IT, CAT & Computer Science" contains
+// both words.
 // Add an explicit `glyph` field on a subject in lib/constants.ts to override this.
-function glyphFor(name: string) {
+function glyphFor(name: string): string | React.ReactElement {
   const n = name.toLowerCase();
-  if (n.includes("math")) return "x²";
   if (n.includes("comput") || n.includes(" it") || n.startsWith("it") || n.includes("cat")) return "{ }";
-  if (n.includes("science") || n.includes("physical") || n.includes("life")) return "⚛";
+  if (n.includes("life")) return <AtomGlyph />;
+  if (n.includes("physic") || n.includes("chem") || n.includes("science") || n.includes("physical")) {
+    return <FlaskGlyph />;
+  }
+  if (n.includes("math")) return "x²";
   if (n.includes("account")) return "∑";
   if (n.includes("english") || n.includes("language")) return "Aa";
   return "∞";
@@ -191,12 +238,9 @@ export default function Subjects() {
         }
         .scard:not(.scard-more):hover {
           transform: translateY(-8px);
-          border-color: rgba(74,222,128,0.45) !important;
+        
           box-shadow: 0 20px 40px -14px rgba(0,0,0,0.55), 0 0 0 1px rgba(74,222,128,0.12) inset;
         }
-        .scard:not(.scard-featured):not(.scard-more):hover {
-  background: #1f2a1f !important;
-}
         .scard-more:hover {
           border-color: rgba(255,255,255,0.25) !important;
         }
@@ -205,6 +249,8 @@ export default function Subjects() {
           position: absolute;
           right: -6px;
           bottom: -16px;
+          min-width: 88px;
+          height: 88px;
           font-size: 88px;
           font-family: "Merriweather", Georgia, serif;
           font-weight: 900;
@@ -216,6 +262,8 @@ export default function Subjects() {
           line-height: 1;
           z-index: 0;
           will-change: transform;
+          text-align: right;
+          white-space: nowrap;
         }
         .scard:hover .scard-glyph {
           color: rgba(74,222,128,0.13);
@@ -224,17 +272,10 @@ export default function Subjects() {
 
         .scard-icon {
           display: inline-block;
-          transition: transform .35s cubic-bezier(.34,1.56,.64,1);
-        }
-        .scard:hover .scard-icon {
-          transform: scale(1.15) translateY(-2px);
         }
 
         .scard:not(.scard-featured) .scard-name {
           transition: color .3s ease;
-        }
-        .scard:not(.scard-featured):hover .scard-name {
-          color: #4ade80 !important;
         }
 
         .scard-underline {

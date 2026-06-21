@@ -153,6 +153,6 @@ export const SUBJECTS = [
     desc: "Don't see your subject? We likely cover it — reach out and we'll confirm.",
     grade: null,
     featured: false,
-    isMore: true,
+    isMore: false,
   },
 ] as const;

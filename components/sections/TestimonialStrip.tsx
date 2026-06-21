@@ -8,12 +8,13 @@ export default function TestimonialStrip() {
   return (
     <section
       style={{
-        background: "transparent",
+        background: "linear-gradient(180deg, #0a0a0a 0%, #0f1a12 50%, #0a0a0a 100%)",
         padding: "70px 0",
         borderTop: "1px solid rgba(255,255,255,0.06)",
         overflow: "hidden",
       }}
     >
+          
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 5%" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 40 }}>
           <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.1)" }} />
