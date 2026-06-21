@@ -2,19 +2,24 @@
 import { TESTIMONIALS } from "@/lib/constants";
 
 export default function TestimonialStrip() {
-  // Duplicate the list so the CSS animation can loop seamlessly (-50% = exactly one full set)
   const looped = [...TESTIMONIALS, ...TESTIMONIALS];
 
   return (
     <section
       style={{
-        background: "linear-gradient(180deg, #0a0a0a 0%, #0f1a12 50%, #0a0a0a 100%)",
+        backgroundColor: "#0a0a0a", // base black
+        backgroundImage:
+        'radial-gradient(circle at center, rgba(0,255,0,0.15), transparent 70%), url("/textures/rocky.png")',
+        backgroundBlendMode: "overlay",
+        backgroundSize: "cover",
+        backgroundRepeat: "repeat",
         padding: "70px 0",
         borderTop: "1px solid rgba(255,255,255,0.06)",
         overflow: "hidden",
       }}
     >
-          
+
+              
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 5%" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 40 }}>
           <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.1)" }} />
