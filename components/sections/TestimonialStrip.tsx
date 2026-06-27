@@ -7,7 +7,7 @@ export default function TestimonialStrip() {
   return (
     <section
       style={{
-        backgroundColor: "#0a0a0a", // base black
+        backgroundColor: "#0a0a0a",
         backgroundImage:
         'radial-gradient(circle at center, rgba(0,255,0,0.15), transparent 70%), url("/textures/rocky.png")',
         backgroundBlendMode: "overlay",
@@ -18,9 +18,7 @@ export default function TestimonialStrip() {
         overflow: "hidden",
       }}
     >
-
-              
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 5%" }}>
+<div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 5%" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 40 }}>
           <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.1)" }} />
           <h2

@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
 const TRUST_ITEMS = [
   {
     icon: (
@@ -21,7 +25,7 @@ const TRUST_ITEMS = [
     ),
     bg: "rgba(245,158,11,0.08)",
     border: "rgba(245,158,11,0.2)",
-    title: "10+ years of proven results",
+    title: "COUNTUP", // placeholder, replaced by custom render below
     desc: "Reliable and Dependable.",
   },
   {
@@ -40,6 +44,81 @@ const TRUST_ITEMS = [
     desc: "Rebuild, refocus, and come back stronger. We have helped many succeed.",
   },
 ];
+
+/**
+ * Counts up from 1 to `target` every time the element scrolls into view.
+ * Uses an IntersectionObserver so it fires whenever the strip becomes
+ * visible, and resets back to 1 when it scrolls out so the animation has
+ * something to replay from on the next visit.
+ */
+function useCountUp(target: number, durationMs = 2200) {
+  const [count, setCount] = useState(1);
+  const ref = useRef<HTMLSpanElement>(null);
+  const frameId = useRef<number | null>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const cancelRunningAnimation = () => {
+      if (frameId.current !== null) {
+        cancelAnimationFrame(frameId.current);
+        frameId.current = null;
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        cancelRunningAnimation();
+
+        if (entry.isIntersecting) {
+          setCount(1);
+          const startTime = performance.now();
+
+          const tick = (now: number) => {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / durationMs, 1);
+            // ease-out so it settles rather than stopping abruptly
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const value = Math.round(1 + eased * (target - 1));
+
+            setCount(value);
+
+            if (progress < 1) {
+              frameId.current = requestAnimationFrame(tick);
+            } else {
+              frameId.current = null;
+            }
+          };
+
+          frameId.current = requestAnimationFrame(tick);
+        } else {
+          // Reset so the next time it scrolls into view, it counts up again
+          setCount(1);
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(el);
+    return () => {
+      cancelRunningAnimation();
+      observer.disconnect();
+    };
+  }, [target, durationMs]);
+
+  return { count, ref };
+}
+
+function CountUpStat() {
+  const { count, ref } = useCountUp(10, 1200);
+
+  return (
+    <p style={{ fontSize: 14, fontWeight: 700, color: "rgba(255,255,255,0.9)", lineHeight: 1.3 }}>
+      <span ref={ref}>{count}+</span> years of proven results
+    </p>
+  );
+}
 
 export default function TrustStrip() {
   return (
@@ -89,9 +168,14 @@ export default function TrustStrip() {
               {item.icon}
             </div>
 
-            <p style={{ fontSize: 14, fontWeight: 700, color: "rgba(255,255,255,0.9)", lineHeight: 1.3 }}>
-              {item.title}
-            </p>
+            {item.title === "COUNTUP" ? (
+              <CountUpStat />
+            ) : (
+              <p style={{ fontSize: 14, fontWeight: 700, color: "rgba(255,255,255,0.9)", lineHeight: 1.3 }}>
+                {item.title}
+              </p>
+            )}
+
             <p style={{ fontSize: 12.5, color: "rgba(255,255,255,0.45)", lineHeight: 1.65, marginTop: -6 }}>
               {item.desc}
             </p>
