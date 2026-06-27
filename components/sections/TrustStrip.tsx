@@ -51,7 +51,7 @@ const TRUST_ITEMS = [
  * visible, and resets back to 1 when it scrolls out so the animation has
  * something to replay from on the next visit.
  */
-function useCountUp(target: number, durationMs = 2200) {
+function useCountUp(target: number, durationMs = 3000) {
   const [count, setCount] = useState(1);
   const ref = useRef<HTMLSpanElement>(null);
   const frameId = useRef<number | null>(null);
@@ -78,15 +78,20 @@ function useCountUp(target: number, durationMs = 2200) {
           const tick = (now: number) => {
             const elapsed = now - startTime;
             const progress = Math.min(elapsed / durationMs, 1);
-            // ease-out so it settles rather than stopping abruptly
-            const eased = 1 - Math.pow(1 - progress, 3);
-            const value = Math.round(1 + eased * (target - 1));
+            // gentle ease-out (quadratic, not cubic) so early numbers
+            // get roughly equal screen time instead of flashing past
+            const eased = 1 - Math.pow(1 - progress, 1.6);
+            const value = Math.min(
+              target,
+              Math.floor(1 + eased * target)
+            );
 
             setCount(value);
 
             if (progress < 1) {
               frameId.current = requestAnimationFrame(tick);
             } else {
+              setCount(target);
               frameId.current = null;
             }
           };
@@ -111,7 +116,7 @@ function useCountUp(target: number, durationMs = 2200) {
 }
 
 function CountUpStat() {
-  const { count, ref } = useCountUp(10, 1200);
+  const { count, ref } = useCountUp(10, 3000);
 
   return (
     <p style={{ fontSize: 14, fontWeight: 700, color: "rgba(255,255,255,0.9)", lineHeight: 1.3 }}>
