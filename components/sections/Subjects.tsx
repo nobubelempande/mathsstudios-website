@@ -64,16 +64,16 @@ export default function Subjects() {
     <>
     <section
       id="subjects"
+      className="subjects-section"
       style={{
         background: "#111",
         padding: "90px 5%",
         borderTop: "1px solid rgba(255,255,255,0.06)",
-        backgroundRepeat: "repeat",
-        backgroundSize: "900px 700px",
-        backgroundImage: 'url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNzAwIiB2aWV3Qm94PSIwIDAgOTAwIDcwMCI+CiAgPHN0eWxlPgogICAgdGV4dCB7IGZvbnQtZmFtaWx5OiBHZW9yZ2lhLCAiVGltZXMgTmV3IFJvbWFuIiwgc2VyaWY7IGZpbGw6ICNmZmZmZmY7IGZpbGwtb3BhY2l0eTogMC4wNTsgfQogICAgLmVxIHsgZm9udC1zaXplOiAyMnB4OyBmb250LXN0eWxlOiBpdGFsaWM7IH0KICAgIC5lcS1zbSB7IGZvbnQtc2l6ZTogMTZweDsgZm9udC1zdHlsZTogaXRhbGljOyB9CiAgICAuZXEtbGcgeyBmb250LXNpemU6IDI4cHg7IGZvbnQtc3R5bGU6IGl0YWxpYzsgZm9udC13ZWlnaHQ6IGJvbGQ7IH0KICA8L3N0eWxlPgoKICA8dGV4dCBjbGFzcz0iZXEiIHg9IjIwIiB5PSI2MCI+eMKyICsgMnggKyAxID0gMDwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEtc20iIHg9IjQwIiB5PSIxNjAiPmHCsiArIGLCsiA9IGPCsjwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEtbGciIHg9IjE1IiB5PSIyODAiPuKIqyBmKHgpIGR4PC90ZXh0PgogIDx0ZXh0IGNsYXNzPSJlcSIgeD0iMzAiIHk9IjM4MCI+c2luwrLOuCArIGNvc8KyzrggPSAxPC90ZXh0PgogIDx0ZXh0IGNsYXNzPSJlcS1zbSIgeD0iNTAiIHk9IjQ3MCI+eSA9IG14ICsgYzwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEiIHg9IjIwIiB5PSI1NzAiPmxpbeKCk+KGkjAgKHNpbiB4KS94ID0gMTwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEtc20iIHg9IjQwIiB5PSI2NjAiPjJI4oKCICsgT+KCgiDihpIgMkjigoJPPC90ZXh0PgoKICA8dGV4dCBjbGFzcz0iZXEtbGciIHg9IjI2MCIgeT0iMTAwIj5FID0gbWPCsjwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEtc20iIHg9IjI4MCIgeT0iMjAwIj54ID0gKC1iIMKxIOKIms6UKSAvIDJhPC90ZXh0PgogIDx0ZXh0IGNsYXNzPSJlcS1zbSIgeD0iMzAwIiB5PSIzMDAiPkYgPSBtYTwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEiIHg9IjI2MCIgeT0iNDAwIj7iiJEgbihuKzEpLzI8L3RleHQ+CiAgPHRleHQgY2xhc3M9ImVxLXNtIiB4PSIyOTAiIHk9IjUwMCI+bG9nKHh5KSA9IGxvZyB4ICsgbG9nIHk8L3RleHQ+CiAgPHRleHQgY2xhc3M9ImVxLWxnIiB4PSIyNzAiIHk9IjYxMCI+z4AgcsKyPC90ZXh0PgoKICA8dGV4dCBjbGFzcz0iZXEtc20iIHg9IjUyMCIgeT0iNjAiPmQvZHggKHjigb8pID0gbnjigb/igbvCuTwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEtc20iIHg9IjU0MCIgeT0iMTUwIj52ID0gdSArIGF0PC90ZXh0PgogIDx0ZXh0IGNsYXNzPSJlcS1sZyIgeD0iNTEwIiB5PSIyNTAiPuKIhkFCQyB+IOKIhkRFRjwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEtc20iIHg9IjUyMCIgeT0iMzUwIj5jb3MoQStCKSA9IGNvc0Fjb3NCIOKIkiBzaW5Bc2luQjwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEtc20iIHg9IjU1MCIgeT0iNDUwIj5QViA9IG5SVDwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEiIHg9IjUyMCIgeT0iNTUwIj5mKHgpID0gYXjCsiArIGJ4ICsgYzwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEtc20iIHg9IjU0MCIgeT0iNjQwIj7iiJooeMKyICsgecKyKTwvdGV4dD4KCiAgPHRleHQgY2xhc3M9ImVxLWxnIiB4PSI3MzAiIHk9IjkwIj7iiJ48L3RleHQ+CiAgPHRleHQgY2xhc3M9ImVxLXNtIiB4PSI2ODAiIHk9IjE4MCI+UChB4oipQikgPSBQKEEpUChCKTwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEtc20iIHg9IjcxMCIgeT0iMjgwIj5tID0gKHnigoIteeKCgSkvKHjigoIteOKCgSk8L3RleHQ+CiAgPHRleHQgY2xhc3M9ImVxLXNtIiB4PSI2OTAiIHk9IjM4MCI+4oiHwrdFID0gz4EvzrXigoA8L3RleHQ+CiAgPHRleHQgY2xhc3M9ImVxLWxnIiB4PSI3MDAiIHk9IjQ4MCI+ZV4oac+AKSsxPTA8L3RleHQ+CiAgPHRleHQgY2xhc3M9ImVxLXNtIiB4PSI2NjAiIHk9IjU3MCI+Q0jigoQgKyAyT+KCgiDihpIgQ0/igoIgKyAySOKCgk88L3RleHQ+CiAgPHRleHQgY2xhc3M9ImVxLXNtIiB4PSI2OTAiIHk9IjY2MCI+dGFuIM64ID0gc2luzrgvY29zzrg8L3RleHQ+Cjwvc3ZnPgo=")',
+        position: "relative",
+        overflow: "hidden",
       }}
-          >
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+    >
+      <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1 }}>
         <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: 3, textTransform: "uppercase", color: "#4ade80", marginBottom: 14 }}>
           What we cover
         </p>
@@ -221,6 +221,25 @@ export default function Subjects() {
       </div>
 
       <style>{`
+        .subjects-section {
+          /* 👇 YOUR DIAL — change this number (0 to 1) to fade the
+             background equations in or out. No base64, no asking
+             Claude. 0.6 = the current quieter look. 1 = full strength
+             of the SVG's own faint fill. 0 = hidden completely. */
+          --eq-bg-opacity: 0.6;
+        }
+        .subjects-section::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+          pointer-events: none;
+          background-repeat: repeat;
+          background-size: 900px 700px;
+          background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNzAwIiB2aWV3Qm94PSIwIDAgOTAwIDcwMCI+CiAgPHN0eWxlPgogICAgdGV4dCB7IGZvbnQtZmFtaWx5OiBHZW9yZ2lhLCAiVGltZXMgTmV3IFJvbWFuIiwgc2VyaWY7IGZpbGw6ICNmZmZmZmY7IGZpbGwtb3BhY2l0eTogMC4wMzsgfQogICAgLmVxIHsgZm9udC1zaXplOiAyMnB4OyBmb250LXN0eWxlOiBpdGFsaWM7IH0KICAgIC5lcS1zbSB7IGZvbnQtc2l6ZTogMTZweDsgZm9udC1zdHlsZTogaXRhbGljOyB9CiAgICAuZXEtbGcgeyBmb250LXNpemU6IDI4cHg7IGZvbnQtc3R5bGU6IGl0YWxpYzsgZm9udC13ZWlnaHQ6IGJvbGQ7IH0KICA8L3N0eWxlPgoKICA8dGV4dCBjbGFzcz0iZXEiIHg9IjIwIiB5PSI2MCI+eMKyICsgMnggKyAxID0gMDwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEtc20iIHg9IjQwIiB5PSIxNjAiPmHCsiArIGLCsiA9IGPCsjwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEtbGciIHg9IjE1IiB5PSIyODAiPuKIqyBmKHgpIGR4PC90ZXh0PgogIDx0ZXh0IGNsYXNzPSJlcSIgeD0iMzAiIHk9IjM4MCI+c2luwrLOuCArIGNvc8KyzrggPSAxPC90ZXh0PgogIDx0ZXh0IGNsYXNzPSJlcS1zbSIgeD0iNTAiIHk9IjQ3MCI+eSA9IG14ICsgYzwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEiIHg9IjIwIiB5PSI1NzAiPmxpbeKCk+KGkjAgKHNpbiB4KS94ID0gMTwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEtc20iIHg9IjQwIiB5PSI2NjAiPjJI4oKCICsgT+KCgiDihpIgMkjigoJPPC90ZXh0PgoKICA8dGV4dCBjbGFzcz0iZXEtbGciIHg9IjI2MCIgeT0iMTAwIj5FID0gbWPCsjwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEtc20iIHg9IjI4MCIgeT0iMjAwIj54ID0gKC1iIMKxIOKIms6UKSAvIDJhPC90ZXh0PgogIDx0ZXh0IGNsYXNzPSJlcS1zbSIgeD0iMzAwIiB5PSIzMDAiPkYgPSBtYTwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEiIHg9IjI2MCIgeT0iNDAwIj7iiJEgbihuKzEpLzI8L3RleHQ+CiAgPHRleHQgY2xhc3M9ImVxLXNtIiB4PSIyOTAiIHk9IjUwMCI+bG9nKHh5KSA9IGxvZyB4ICsgbG9nIHk8L3RleHQ+CiAgPHRleHQgY2xhc3M9ImVxLWxnIiB4PSIyNzAiIHk9IjYxMCI+z4AgcsKyPC90ZXh0PgoKICA8dGV4dCBjbGFzcz0iZXEtc20iIHg9IjUyMCIgeT0iNjAiPmQvZHggKHjigb8pID0gbnjigb/igbvCuTwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEtc20iIHg9IjU0MCIgeT0iMTUwIj52ID0gdSArIGF0PC90ZXh0PgogIDx0ZXh0IGNsYXNzPSJlcS1sZyIgeD0iNTEwIiB5PSIyNTAiPuKIhkFCQyB+IOKIhkRFRjwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEtc20iIHg9IjUyMCIgeT0iMzUwIj5jb3MoQStCKSA9IGNvc0Fjb3NCIOKIkiBzaW5Bc2luQjwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEtc20iIHg9IjU1MCIgeT0iNDUwIj5QViA9IG5SVDwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEiIHg9IjUyMCIgeT0iNTUwIj5mKHgpID0gYXjCsiArIGJ4ICsgYzwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEtc20iIHg9IjU0MCIgeT0iNjQwIj7iiJooeMKyICsgecKyKTwvdGV4dD4KCiAgPHRleHQgY2xhc3M9ImVxLWxnIiB4PSI3MzAiIHk9IjkwIj7iiJ48L3RleHQ+CiAgPHRleHQgY2xhc3M9ImVxLXNtIiB4PSI2ODAiIHk9IjE4MCI+UChB4oipQikgPSBQKEEpUChCKTwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZXEtc20iIHg9IjcxMCIgeT0iMjgwIj5tID0gKHnigoIteeKCgSkvKHjigoIteOKCgSk8L3RleHQ+CiAgPHRleHQgY2xhc3M9ImVxLXNtIiB4PSI2OTAiIHk9IjM4MCI+4oiHwrdFID0gz4EvzrXigoA8L3RleHQ+CiAgPHRleHQgY2xhc3M9ImVxLWxnIiB4PSI3MDAiIHk9IjQ4MCI+ZV4oac+AKSsxPTA8L3RleHQ+CiAgPHRleHQgY2xhc3M9ImVxLXNtIiB4PSI2NjAiIHk9IjU3MCI+Q0jigoQgKyAyT+KCgiDihpIgQ0/igoIgKyAySOKCgk88L3RleHQ+CiAgPHRleHQgY2xhc3M9ImVxLXNtIiB4PSI2OTAiIHk9IjY2MCI+dGFuIM64ID0gc2luzrgvY29zzrg8L3RleHQ+Cjwvc3ZnPgo=");
+          opacity: var(--eq-bg-opacity);
+        }
+
         .subjects-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
