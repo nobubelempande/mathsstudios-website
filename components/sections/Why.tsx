@@ -68,9 +68,9 @@ export default function Why() {
               <h2 style={{ fontFamily: '"Merriweather", serif', fontSize: "clamp(24px, 2.8vw, 36px)", fontWeight: 900, color: "#fff", lineHeight: 1.2, marginBottom: 12 }}>
                 Expert Tutors. Real Results.
               </h2>
-              <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", lineHeight: 1.75 }}>
+              {/* <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", lineHeight: 1.75 }}>
                 Private one-on-one sessions or small group classes — structured around your child&apos;s needs, pace, and curriculum.
-              </p>
+              </p> */}
             </div>
 
             <div ref={listRef} style={{ display: "flex", flexDirection: "column", gap: 28 }}>
