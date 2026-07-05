@@ -26,9 +26,10 @@ export const CURRICULA = [
 ] as const;
 
 export const NAV_LINKS = [
-  { label: "Why MathsStudios", href: "#why" },
-  { label: "Subjects", href: "#subjects" },
-  { label: "Find Us", href: "#location" },
+  { label: "Why MathsStudios", href: "/#why" },
+  { label: "Subjects", href: "/#subjects" },
+  { label: "Find Us", href: "/#location" },
+  { label: "Become a Tutor", href: "/become-a-tutor" },
 ] as const;
 
 export const WHY_FEATURES = [
